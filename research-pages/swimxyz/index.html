@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="SwimXYZ is a large-scale dataset of synthetic swimming motions and videos.">
+  <meta name="keywords" content="SwimXYZ, swimming, dataset, pose estimation">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SwimXYZ: A large-scale dataset of synthetic swimming motions and videos</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/digisport.png">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9LTDGDQHFV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-9LTDGDQHFV');
+  </script>
+</head>
+
+<body>
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">SwimXYZ: A large-scale dataset of synthetic swimming motions and videos
+            </h1>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="https://g-fiche.github.io/">Guénolé Fiche</a><sup>1</sup>,</span>
+              <span class="author-block">
+                Vincent Sevestre</a><sup>2</sup>,</span>
+              <span class="author-block">
+                Camila Gonzalez-Barral</a><sup>3</sup>,</span>
+              <span class="author-block">
+                <a href="https://sleglaive.github.io/">Simon Leglaive</a><sup>1</sup>,</span>
+              <span class="author-block">
+                <a href="https://www.ietr.fr/renaud-seguier">Renaud Séguier</a><sup>1</sup>
+              </span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><sup>1</sup>CentraleSupélec, IETR UMR CNRS 6164, France - </span>
+              <span class="author-block"><sup>2</sup>Centrale Nantes, France</span>
+              <span class="author-block"><sup>3</sup>Université technologique de Compiègne, France</span>
+            </div>
+
+            <br>
+            
+            <div class="is-size-5">
+              ACM MIG 2023
+            </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <!-- PDF Link. -->
+                <span class="link-block">
+                  <a href="static/data/SwimXYZ_ArXiv.pdf" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>Paper</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="#download_links"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fa fa-database"></i>
+                    </span>
+                    <span>Dataset</span>
+                  </a>
+                </span>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <div class="columns is-centered">
+    <table>
+      <td> <img src="./static/images/teaser_images.png" alt="Teaser" width="1000" /> </td>
+    </table>
+  </div>
+
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              Technologies play an increasingly important role in sports and become a real competitive 
+              advantage for the athletes who benefit from it. 
+              Among them, the use of motion capture is developing in various sports to optimize sporting gestures. 
+              Unfortunately, traditional motion capture systems are expensive and constraining. 
+              Recently developed computer vision-based approaches also struggle in certain sports, like swimming, 
+              due to the aquatic environment. 
+              One of the reasons for the gap in performance is the lack of labeled datasets with swimming videos. 
+              In an attempt to address this issue, we introduce SwimXYZ, a synthetic dataset of swimming motions and videos. 
+              SwimXYZ contains 3.4 million frames annotated with ground truth 2D and 3D joints, 
+              as well as 240 sequences of swimming motions in the SMPL parameters format. 
+              In addition to making this dataset publicly available, we present use cases for SwimXYZ 
+              in swimming stroke clustering and 2D pose estimation.
+            </p>
+          </div>
+        </div>
+      </div>
+      <!--/ Abstract. -->
+  </section>
+
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <h2 class="title is-3">Pipeline for generating videos</h2>
+      </div>
+
+      <br>
+
+      <div class="columns is-centered">
+        <table>
+          <td> <img src="./static/images/pipeline.png" alt="Pipeline" width="1000" /> </td>
+        </table>
+      </div>
+
+      <br>
+
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full-width">
+          <div class="content has-text-justified">
+            <p>
+              We first generate a unique motion using <a href="https://peizhuoli.github.io/ganimator/">GANimator</a> trained on a 
+              <a href="https://assetstore.unity.com/packages/3d/characters/white-swimmer-10686-tris-39121">clean swimming motion</a> , 
+              and re-target it on a human body model. 
+              We then create an environment by choosing parameters such as
+              camera view, water effects, and lighting. 
+              We obtain the final animation by putting the swimmer in the virtual swimming pool.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <br>
+      <br>
+
+      <div class="columns is-centered has-text-centered">
+        <h2 class="title is-3">Sample videos</h2>
+      </div>
+
+      <br>
+
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full-width">
+          <div class="content has-text-justified">
+            <p>
+              SwimXYZ is a synthetic
+              dataset specialized in swimming, with synthetic monocular videos
+              annotated with ground truth 2D and 3D joints. SwimXYZ consists
+              of 11520 videos for a total of 3.4 million frames with variations in
+              camera angle, subject and water appearances, lighting, and motion.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <br>
+
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <video id="teaser" autoplay muted loop playsinline height="100%">
+            <source src="./static/videos/sample.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+
+      <br>
+
+      <!-- 2D pose estimation -->
+      <div class="columns is-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3">2D pose estimation</h2>
+          <div class="content has-text-justified">
+            <p>
+              We use SwimXYZ for finetuning <a href="https://arxiv.org/pdf/2204.12484.pdf">ViTPose</a>, the state-of-the-
+              art model for 2D human pose estimation. Qualitative evaluation is performed on images collected on the web.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="columns is-centered">
+        <table>
+          <td> <img src="./static/images/qualRes.png" alt="Pipeline" width="1000" /> </td>
+        </table>
+      </div>
+
+      <br>
+
+      <!-- Download links -->
+      <div id="download_links" class="columns is-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3">Download links</h2>
+          <div class="content has-text-justified">
+            <p>
+              Here are the links to download the dataset. Note that downloading might take some time,
+              the total size of the dataset is about 300G. For each swimming stroke, the part1 contains
+              videos for the front and aerial views, while part2 features the side views.
+              <br>
+              <a href="https://zenodo.org/record/8399376">Annotations and swimming motions in the SMPL format</a>
+              <br>
+              <a href="https://zenodo.org/record/8399837">Backstroke videos (part1)</a>
+              <br>
+              <a href="https://zenodo.org/record/8401680">Backstroke videos (part2)</a>
+              <br>
+              <a href="https://zenodo.org/record/8401898">Breastroke videos (part1)</a>
+              <br>
+              <a href="https://zenodo.org/record/8401923">Breastroke videos (part2)</a>
+              <br>
+              <a href="https://zenodo.org/record/8401954">Butterfly videos (part1)</a>
+              <br>
+              <a href="https://zenodo.org/record/8401974">Butterfly videos (part2)</a>
+              <br>
+              <a href="https://zenodo.org/record/8402009">Freestyle videos (part1)</a>
+              <br>
+              <a href="https://zenodo.org/record/8402031">Freestyle videos (part2)</a>
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>@inproceedings{Fiche23SwimXYZ,
+        author    = {Fiche, Guénolé and Sevestre, Vincent and Gonzalez-Barral, Camila and Leglaive, Simon},
+        title     = {SwimXYZ: A large-scale dataset of synthetic swimming motions and videos},
+        journal   = {ACM SIGGRAPH Conference on Motion, Interaction and Games (MIG)},
+        year      = {2023}
+      }</code></pre>
+    </div>
+  </section>
+
+
+  <footer class="footer">
+    <div class="container">
+      <div class="content has-text-centered">
+        <a class="icon-link" href="./static/videos/nerfies_paper.pdf">
+          <i class="fas fa-file-pdf"></i>
+        </a>
+        <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+          <i class="fab fa-github"></i>
+        </a>
+      </div>
+      <div class="columns is-centered">
+        <div class="content">
+          <p>
+            Website source code borrowed from <a href="https://keunhong.com/">Keunhong Park</a>'s <a
+              href="https://nerfies.github.io/">Nerfies</a> website.
+          </p>
+        </div>
+      </div>
+      <br>
+      <div class="columns is-centered">
+        <div class="content">
+          <p>
+            This study is part of the <a href="https://digisport.univ-rennes.fr/en/home/">EUR DIGISPORT</a> project
+            supported by the ANR within the framework of the PIA France
+            2030 (ANR-18-EURE-0022). This work was performed using HPC resources from the <a
+              href="http://mesocentre.centralesupelec.fr/">"Mésocentre"</a> computing center
+            of CentraleSupélec, École Normale Supérieure Paris-Saclay, and Université Paris-Saclay supported by CNRS and
+            Région Île-de-France.
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>
