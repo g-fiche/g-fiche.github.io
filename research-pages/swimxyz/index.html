@@ -32,7 +32,8 @@
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title">SwimXYZ: A large-scale dataset of synthetic swimming motions and videos
+            <h1 class="title is-1 publication-title">SwimXYZ: A large-scale dataset of synthetic swimming motions and
+              videos
             </h1>
             <div class="is-size-5 publication-authors">
               <span class="author-block">
@@ -55,7 +56,7 @@
             </div>
 
             <br>
-            
+
             <div class="is-size-5">
               ACM MIG 2023
             </div>
@@ -72,8 +73,7 @@
                   </a>
                 </span>
                 <span class="link-block">
-                  <a href="#download_links"
-                    class="external-link button is-normal is-rounded is-dark">
+                  <a href="#download_links" class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="fa fa-database"></i>
                     </span>
@@ -105,17 +105,18 @@
           <h2 class="title is-3">Abstract</h2>
           <div class="content has-text-justified">
             <p>
-              Technologies play an increasingly important role in sports and become a real competitive 
-              advantage for the athletes who benefit from it. 
-              Among them, the use of motion capture is developing in various sports to optimize sporting gestures. 
-              Unfortunately, traditional motion capture systems are expensive and constraining. 
-              Recently developed computer vision-based approaches also struggle in certain sports, like swimming, 
-              due to the aquatic environment. 
-              One of the reasons for the gap in performance is the lack of labeled datasets with swimming videos. 
-              In an attempt to address this issue, we introduce SwimXYZ, a synthetic dataset of swimming motions and videos. 
-              SwimXYZ contains 3.4 million frames annotated with ground truth 2D and 3D joints, 
-              as well as 240 sequences of swimming motions in the SMPL parameters format. 
-              In addition to making this dataset publicly available, we present use cases for SwimXYZ 
+              Technologies play an increasingly important role in sports and become a real competitive
+              advantage for the athletes who benefit from it.
+              Among them, the use of motion capture is developing in various sports to optimize sporting gestures.
+              Unfortunately, traditional motion capture systems are expensive and constraining.
+              Recently developed computer vision-based approaches also struggle in certain sports, like swimming,
+              due to the aquatic environment.
+              One of the reasons for the gap in performance is the lack of labeled datasets with swimming videos.
+              In an attempt to address this issue, we introduce SwimXYZ, a synthetic dataset of swimming motions and
+              videos.
+              SwimXYZ contains 3.4 million frames annotated with ground truth 2D and 3D joints,
+              as well as 240 sequences of swimming motions in the SMPL parameters format.
+              In addition to making this dataset publicly available, we present use cases for SwimXYZ
               in swimming stroke clustering and 2D pose estimation.
             </p>
           </div>
@@ -145,11 +146,13 @@
         <div class="column is-full-width">
           <div class="content has-text-justified">
             <p>
-              We first generate a unique motion using <a href="https://peizhuoli.github.io/ganimator/">GANimator</a> trained on a 
-              <a href="https://assetstore.unity.com/packages/3d/characters/white-swimmer-10686-tris-39121">clean swimming motion</a> , 
-              and re-target it on a human body model. 
+              We first generate a unique motion using <a href="https://peizhuoli.github.io/ganimator/">GANimator</a>
+              trained on a
+              <a href="https://assetstore.unity.com/packages/3d/characters/white-swimmer-10686-tris-39121">clean
+                swimming motion</a> ,
+              and re-target it on a human body model.
               We then create an environment by choosing parameters such as
-              camera view, water effects, and lighting. 
+              camera view, water effects, and lighting.
               We obtain the final animation by putting the swimmer in the virtual swimming pool.
             </p>
           </div>
@@ -197,8 +200,10 @@
           <h2 class="title is-3">2D pose estimation</h2>
           <div class="content has-text-justified">
             <p>
-              We use SwimXYZ for finetuning <a href="https://arxiv.org/pdf/2204.12484.pdf">ViTPose</a>, the state-of-the-
-              art model for 2D human pose estimation. Qualitative evaluation is performed on images collected on the web.
+              We use SwimXYZ for finetuning <a href="https://arxiv.org/pdf/2204.12484.pdf">ViTPose</a>, the
+              state-of-the-
+              art model for 2D human pose estimation. Qualitative evaluation is performed on images collected on the
+              web.
             </p>
           </div>
         </div>
@@ -251,11 +256,12 @@
   <section class="section" id="BibTeX">
     <div class="container is-max-desktop content">
       <h2 class="title">BibTeX</h2>
-      <pre><code>@inproceedings{Fiche23SwimXYZ,
-        author    = {Fiche, Guénolé and Sevestre, Vincent and Gonzalez-Barral, Camila and Leglaive, Simon},
-        title     = {SwimXYZ: A large-scale dataset of synthetic swimming motions and videos},
-        journal   = {ACM SIGGRAPH Conference on Motion, Interaction and Games (MIG)},
-        year      = {2023}
+      <pre><code>@inproceedings{fiche2023swimxyz,
+        title={SwimXYZ: A large-scale dataset of synthetic swimming motions and videos},
+        author={Fiche, Gu{\'e}nol{\'e} and Sevestre, Vincent and Gonzalez-Barral, Camila and Leglaive, Simon and S{\'e}guier, Renaud},
+        booktitle={Proceedings of the 16th ACM SIGGRAPH Conference on Motion, Interaction and Games},
+        pages={1--7},
+        year={2023}
       }</code></pre>
     </div>
   </section>
