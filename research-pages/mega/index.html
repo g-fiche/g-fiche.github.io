@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="MEGA formulates HMR as the generation of a sequence of human mesh tokens.">
+    <meta name="keywords"
+        content="MEGA, masked generative modeling, masked autoencoder, quantized mesh, human mesh recovery, multi-output HMR">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MEGA: Masked Generative Autoencoder for Human Mesh Recovery</title>
+
+    <link rel="stylesheet" href="./static/css/bulma.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="./static/css/index.css">
+    <link rel="icon" href="./static/images/digisport.png">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="./static/js/fontawesome.all.min.js"></script>
+    <script src="./static/js/bulma-carousel.min.js"></script>
+    <script src="./static/js/bulma-slider.min.js"></script>
+    <script src="./static/js/index.js"></script>
+
+</head>
+
+<body>
+
+
+    <section class="hero">
+        <div class="hero-body">
+            <div class="container is-max-desktop">
+                <div class="columns is-centered">
+                    <div class="column has-text-centered">
+                        <h1 class="title is-1 publication-title">MEGA: Masked Generative Autoencoder for Human Mesh
+                            Recovery
+                        </h1>
+                        <div class="is-size-5 publication-authors">
+                            <span class="author-block">
+                                <a href="https://g-fiche.github.io/">Guénolé Fiche</a><sup>1</sup>,
+                            </span>
+                            <span class="author-block">
+                                <a href="https://sleglaive.github.io/">Simon Leglaive</a><sup>1</sup>,
+                            </span>
+                            <span class="author-block">
+                                <a href="https://xavirema.eu/">Xavier Alameda-Pineda</a><sup>2</sup>,
+                            </span>
+                            <span class="author-block">
+                                <a href="https://www.iri.upc.edu/people/fmoreno/">Francesc
+                                    Moreno-Noguer</a><sup>3</sup>
+                            </span>
+                        </div>
+
+                        <div class="is-size-5 publication-authors">
+                            <span class="author-block"><sup>1</sup>CentraleSupélec, IETR UMR CNRS 6164, France - </span>
+                            <span class="author-block"><sup>2</sup>Inria, Univ. Grenoble Alpes, CNRS, LJK, France -
+                            </span>
+                            <span class="author-block"><sup>3</sup>Institut de Robòtica i Informàtica Industrial,
+                                CSIC-UPC, Spain</span>
+                        </div>
+
+                        <br>
+
+                        <div class="is-size-5">
+                            ArXiv 2024
+                        </div>
+
+                        <div class="column has-text-centered">
+                            <div class="publication-links">
+                                <!-- PDF Link. -->
+                                <span class="link-block">
+                                    <a href="static/data/MEGA_full.pdf"
+                                        class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">
+                                            <i class="fas fa-file-pdf"></i>
+                                        </span>
+                                        <span>Paper</span>
+                                    </a>
+                                </span>
+                                <span class="link-block">
+                                    <a href="https://g-fiche.github.io/research-pages/vqhps/"
+                                        class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">
+                                            <i class="fab fa-github"></i>
+                                        </span>
+                                        <span>Code (coming soon)</span>
+                                    </a>
+                                </span>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <div class="columns is-centered">
+        <table>
+            <td> <img src="./static/images/teaser.png" alt="Teaser" width="1000" /> </td>
+        </table>
+    </div>
+
+
+    <section class="section">
+        <div class="container is-max-desktop">
+            <!-- Abstract. -->
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                    <h2 class="title is-3">Abstract</h2>
+                    <div class="content has-text-justified">
+                        <p>
+                            Human Mesh Recovery (HMR) from a single RGB image is a highly ambiguous problem,
+                            as similar 2D projections can correspond to multiple 3D interpretations.
+                            Nevertheless, most HMR methods overlook this ambiguity and make a single prediction without
+                            accounting for the associated uncertainty.
+                            A few approaches generate a distribution of human meshes, enabling the sampling of multiple
+                            predictions;
+                            however, none of them is competitive with the latest single-output model when making a
+                            single prediction.
+                            This work proposes a new approach based on masked generative modeling.
+                            By tokenizing the human pose and shape, we formulate the HMR task as generating a sequence
+                            of discrete tokens conditioned on an input image.
+                            We introduce MEGA, a MaskEd Generative Autoencoder trained to recover human meshes from
+                            images and partial human mesh token sequences.
+                            Given an image, our flexible generation scheme allows us to predict a single human mesh in
+                            deterministic mode
+                            or to generate multiple human meshes in stochastic mode.
+                            MEGA enables us to propose multiple outputs and to evaluate the uncertainty of the
+                            predictions.
+                            Experiments on in-the-wild benchmarks show that MEGA achieves state-of-the-art performance
+                            in deterministic and stochastic modes,
+                            outperforming single-output and multi-output approaches.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!--/ Abstract. -->
+    </section>
+
+
+    <section class="section">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+                <h2 class="title is-3">Architecture of the model</h2>
+            </div>
+
+            <br>
+
+            <div class="columns is-centered">
+                <table>
+                    <td> <img src="./static/images/MEGA.svg" alt="Architecture" width="1000" /> </td>
+                </table>
+            </div>
+
+            <br>
+
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-full-width">
+                    <div class="content has-text-justified">
+                        <p>
+                            MEGA, a multi-output HMR approach based on self-supervised learning and masked generative
+                            modeling of tokenized human meshes. MEGA relies on <a
+                                href="https://g-fiche.github.io/research-pages/vqhps/">Mesh-VQ-VAE</a> to
+                            encode/decode a 3D human mesh to/from a set of discrete tokens.
+                        </p>
+                        <p>
+                            Our training process unfolds in two steps: (1) Firstly, akin to (vector quantized) masked
+                            autoencoders, we
+                            pre-train MEGA in a self-supervised manner to reconstruct human mesh tokens from partially
+                            visible inputs. This leverages large amounts of motion capture data without the need for
+                            paired image data. (2) Subsequently, for HMR from RGB images, we train MEGA to predict
+                            randomly masked human mesh tokens conditioned on image feature embeddings. During inference,
+                            we begin with a fully masked sequence of tokens and generate a human mesh conditioned on an
+                            input image.
+                        </p>
+                        We propose two distinct generation modes: (2.a) In deterministic mode, MEGA predicts all tokens
+                        in a single forward pass, ensuring speed and accuracy; (2.b) In stochastic mode, the generation
+                        process involves iteratively sampling human mesh tokens, enabling MEGA to produce multiple
+                        predictions from a single image for uncertainty quantification.
+                        <p>
+
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <br>
+            <br>
+
+            <div class="columns is-centered has-text-centered">
+                <h2 class="title is-3">Deterministic mode</h2>
+            </div>
+
+            <br>
+
+            <div class="columns is-centered">
+                <table>
+                    <td> <img src="./static/images/qualitative.png" alt="reconstruction" width="1000" /> </td>
+                </table>
+            </div>
+
+            <br>
+
+            <!-- Scarce data -->
+            <div class="columns is-centered">
+                <div class="column is-full-width">
+                    <h2 class="title is-3">Stochastic mode</h2>
+                    <div class="content has-text-justified">
+                        <p>
+                            In stochastic mode, we iteratively sample human mesh tokens to build predictions, which
+                            leads to multiple outputs
+                            given a single image. We can then compute the uncertainty of each vertex as its standard
+                            deviation over the predictions.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <br>
+
+            <div class="columns is-centered">
+                <table>
+                    <td> <img src="./static/images/multi_predictions.png" alt="Scarce" width="1000" /> </td>
+                </table>
+            </div>
+
+        </div>
+    </section>
+
+
+    <section class="section" id="BibTeX">
+        <div class="container is-max-desktop content">
+            <h2 class="title">BibTeX</h2>
+            <pre><code>@article{fiche2024mega,
+                title={MEGA: Masked Generative Autoencoder for Human Mesh Recovery},
+                author={Fiche, Gu{\'e}nol{\'e} and Leglaive, Simon and Alameda-Pineda, Xavier and Moreno-Noguer, Francesc},
+                journal={arXiv preprint arXiv:2405.18839},
+                year={2024}
+              }</code></pre>
+        </div>
+    </section>
+
+
+    <footer class="footer">
+        <div class="container">
+            <div class="content has-text-centered">
+                <a class="icon-link" href="./static/videos/nerfies_paper.pdf">
+                    <i class="fas fa-file-pdf"></i>
+                </a>
+                <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+            <div class="columns is-centered">
+                <div class="content">
+                    <p>
+                        Website source code borrowed from <a href="https://keunhong.com/">Keunhong Park</a>'s <a
+                            href="https://nerfies.github.io/">Nerfies</a> website.
+                    </p>
+                </div>
+            </div>
+            <br>
+            <div class="columns is-centered">
+                <div class="content">
+                    <p>
+                        This study is part of the <a href="https://digisport.univ-rennes.fr/en/home/">EUR DIGISPORT</a>
+                        project
+                        supported by the ANR within the framework of the PIA France
+                        2030 (ANR-18-EURE-0022). This work was performed using HPC resources from the <a
+                            href="http://mesocentre.centralesupelec.fr/">"Mésocentre"</a> computing center
+                        of CentraleSupélec, École Normale Supérieure Paris-Saclay, and Université Paris-Saclay supported
+                        by CNRS and
+                        Région Île-de-France.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
