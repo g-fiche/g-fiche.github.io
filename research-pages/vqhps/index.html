@@ -274,7 +274,8 @@
                             and <a href="http://human-pose.mpi-inf.mpg.de/">MPII</a>.
                             Qualitative results on the <a href="https://virtualhumans.mpi-inf.mpg.de/3DPW/">3DPW</a>
                             dataset
-                            are available below.
+                            are available below. For video results, the frames are processed indepently but we apply a
+                            linear moving average with a window of size 10 on vertices to smooth the results.
                         </p>
                     </div>
                 </div>
@@ -286,6 +287,26 @@
                 <table>
                     <td> <img src="./static/images/viz_real.png" alt="Real" width="1000" /> </td>
                 </table>
+            </div>
+
+            <br>
+
+            <div class="columns is-centered">
+                <div class="column has-text-centered">
+                    <video id="vid1" autoplay muted loop playsinline height="100%">
+                        <source src="./static/videos/outdoors_warmup.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+
+            <br>
+
+            <div class="columns is-centered">
+                <div class="column has-text-centered">
+                    <video id="vid2" autoplay muted loop playsinline height="100%">
+                        <source src="./static/videos/outdoors_fencing.mp4" type="video/mp4">
+                    </video>
+                </div>
             </div>
 
 
