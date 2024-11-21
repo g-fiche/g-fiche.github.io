@@ -79,7 +79,7 @@
                                     </a>
                                 </span>
                                 <span class="link-block">
-                                    <a href="https://g-fiche.github.io/research-pages/vqhps/"
+                                    <a href="https://g-fiche.github.io/research-pages/mega/"
                                         class="external-link button is-normal is-rounded is-dark">
                                         <span class="icon">
                                             <i class="fab fa-github"></i>
@@ -112,27 +112,21 @@
                     <h2 class="title is-3">Abstract</h2>
                     <div class="content has-text-justified">
                         <p>
-                            Human Mesh Recovery (HMR) from a single RGB image is a highly ambiguous problem,
-                            as similar 2D projections can correspond to multiple 3D interpretations.
-                            Nevertheless, most HMR methods overlook this ambiguity and make a single prediction without
-                            accounting for the associated uncertainty.
-                            A few approaches generate a distribution of human meshes, enabling the sampling of multiple
-                            predictions;
-                            however, none of them is competitive with the latest single-output model when making a
-                            single prediction.
-                            This work proposes a new approach based on masked generative modeling.
-                            By tokenizing the human pose and shape, we formulate the HMR task as generating a sequence
-                            of discrete tokens conditioned on an input image.
-                            We introduce MEGA, a MaskEd Generative Autoencoder trained to recover human meshes from
-                            images and partial human mesh token sequences.
-                            Given an image, our flexible generation scheme allows us to predict a single human mesh in
-                            deterministic mode
-                            or to generate multiple human meshes in stochastic mode.
-                            MEGA enables us to propose multiple outputs and to evaluate the uncertainty of the
-                            predictions.
-                            Experiments on in-the-wild benchmarks show that MEGA achieves state-of-the-art performance
-                            in deterministic and stochastic modes,
-                            outperforming single-output and multi-output approaches.
+                            Human Mesh Recovery (HMR) from a single RGB image is a highly ambiguous problem, 
+                            as an infinite set of 3D interpretations can explain the 2D observation equally well. 
+                            Nevertheless, most HMR methods overlook this issue and make a single prediction 
+                            without accounting for this ambiguity. A few approaches generate a distribution of human meshes, 
+                            enabling the sampling of multiple predictions; however, none of them is competitive 
+                            with the latest single-output model when making a single prediction. 
+                            This work proposes a new approach based on masked generative modeling. 
+                            By tokenizing the human pose and shape, we formulate the HMR task as generating a sequence 
+                            of discrete tokens conditioned on an input image. We introduce MEGA, 
+                            a MaskEd Generative Autoencoder trained to recover human meshes from images and partial 
+                            human mesh token sequences. Given an image, our flexible generation scheme allows us to 
+                            predict a single human mesh in deterministic mode or to generate multiple human meshes in 
+                            stochastic mode. Experiments on in-the-wild benchmarks show that MEGA achieves 
+                            state-of-the-art performance in deterministic and stochastic modes, outperforming 
+                            single-output and multi-output approaches.
                         </p>
                     </div>
                 </div>
@@ -176,13 +170,6 @@
                             we begin with a fully masked sequence of tokens and generate a human mesh conditioned on an
                             input image.
                         </p>
-                        We propose two distinct generation modes: (2.a) In deterministic mode, MEGA predicts all tokens
-                        in a single forward pass, ensuring speed and accuracy; (2.b) In stochastic mode, the generation
-                        process involves iteratively sampling human mesh tokens, enabling MEGA to produce multiple
-                        predictions from a single image for uncertainty quantification.
-                        <p>
-
-                        </p>
                     </div>
                 </div>
             </div>
@@ -192,13 +179,10 @@
             <!-- Scarce data -->
             <div class="columns is-centered has-text-centered">
                 <div class="column is-full-width">
-                    <h2 class="title is-3">Stochastic mode</h2>
+                    <h2 class="title is-3">Deterministic mode</h2>
                     <div class="content has-text-justified">
                         <p>
-                            In stochastic mode, we iteratively sample human mesh tokens to build predictions, which
-                            leads to multiple outputs
-                            given a single image. We can then compute the uncertainty of each vertex as its standard
-                            deviation over the predictions.
+                            In deterministic mode, MEGA predicts all tokens in a single forward pass, ensuring speed and accuracy.
                         </p>
                     </div>
                 </div>
@@ -215,22 +199,51 @@
             <br>
             <br>
 
-
-                <div class="content has-text-justified">
-                    <p>
-                        We visualise multiple outputs given single images in stochastic mode.
-                    </p>
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-full-width">
+                    <h2 class="title is-3">Stochastic mode</h2>
+                    <div class="content has-text-justified">
+                        <p>
+                            In stochastic mode, the generation process involves iteratively sampling human mesh tokens, 
+                            enabling MEGA to produce multiple predictions from a single image.
+                        </p>
+                    </div>
                 </div>
+            </div>
 
             <br>
 
+
             <div class="columns is-centered">
                 <table>
-                    <td> <img src="./static/images/multi_predictions.png" alt="Scarce" width="1000" /> </td>
+                    <td> <img src="./static/images/evolution_hmr.png" alt="Scarce" width="1000" /> </td>
                 </table>
             </div>
 
+
+            <div class="content has-text-justified">
+                <p>
+                    We visualize the predictions for intermediate steps in stochastic mode.
+                </p>
+            </div>
+
+        <br>
+
+        <div class="columns is-centered">
+            <table>
+                <td> <img src="./static/images/uncertainty.png" alt="Scarce" width="1000" /> </td>
+            </table>
         </div>
+
+
+        <div class="content has-text-justified">
+            <p>
+                We visualize the standard deviation of the 3D location of each vertex.
+            </p>
+        </div>
+
+        </div>
+
     </section>
 
 
